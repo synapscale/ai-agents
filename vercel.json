@@ -12,6 +12,6 @@
   ],
   "rewrites": [
     { "source": "/api/chat", "destination": "/api/chat.py" },
-    { "source": "/(.*)", "destination": "/frontend/$1" } // Esta rota pode precisar de ajuste ou ser removida se o Next.js lidar com tudo
+    { "source": "/(.*)", "destination": "/frontend/$1" }
   ]
 }
