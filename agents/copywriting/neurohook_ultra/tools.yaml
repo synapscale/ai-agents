@@ -1,0 +1,50 @@
+tools:
+- name: knowledge_base_search
+  description: "Busca informações na base de conhecimento geral do NEUROHOOK-ULTRA"
+  type: vector_search
+  parameters:
+    table: knowledge_base
+    metadata_filters:
+      agent_id: NEUROHOOK-ULTRA
+    limit: 5
+
+- name: cognition_scanner
+  description: "Delega questões sobre neurociência da atenção, mecanismos cognitivos
+    e biases para o especialista Cognition-Scanner"
+  type: sub_agent
+  parameters:
+    agent_id: Cognition-Scanner
+    threshold: 0.75    # Confiança mínima para delegar
+
+- name: dissonance_architect
+  description: "Delega questões sobre técnicas de disrupção cognitiva, pattern interruption
+    e criação de dissonância para o especialista Dissonance-Architect"
+  type: sub_agent
+  parameters:
+    agent_id: Dissonance-Architect
+    threshold: 0.75
+
+- name: relevance_engineer
+  description: "Delega questões sobre formulação de headlines, relevância de mensagens
+    e otimização linguística para o especialista Relevance-Engineer"
+  type: sub_agent
+  parameters:
+    agent_id: Relevance-Engineer
+    threshold: 0.75
+
+- name: credibility_calibrator
+  description: "Delega questões sobre estabelecimento de credibilidade, psicologia
+    da audiência e alinhamento de valores para o especialista Credibility-Calibrator"
+  type: sub_agent
+  parameters:
+    agent_id: Credibility-Calibrator
+    threshold: 0.75
+
+- name: urgency_programmer
+  description: "Delega questões sobre criação de urgência, gatilhos de conversão e
+    implementação prática para o especialista Urgency-Programmer"
+  type: sub_agent
+  parameters:
+    agent_id: Urgency-Programmer
+    threshold: 0.75
+

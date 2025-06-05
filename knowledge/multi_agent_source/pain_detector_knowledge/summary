@@ -1,0 +1,164 @@
+pain_detector_knowledge/
+│
+├── foundational_psychology/
+│   ├── emotional_frameworks/
+│   │   ├── papers/
+│   │   │   ├── hierarchy_of_needs.pdf
+│   │   │   ├── emotional_granularity_research.pdf
+│   │   │   ├── psychological_pain_studies.pdf
+│   │   │   ├── emotional_suppression_effects.pdf
+│   │   │   └── ...
+│   │   ├── books/
+│   │   │   ├── psychology_of_suffering.md
+│   │   │   ├── emotional_intelligence_research.md
+│   │   │   └── ...
+│   │   └── summaries/
+│   │       ├── core_human_motivations.md
+│   │       ├── emotional_articulation_taxonomy.md
+│   │       └── ...
+│   │
+│   ├── identity_psychology/
+│   │   ├── self_concept_research.md
+│   │   ├── identity_threat_mechanisms.md
+│   │   ├── narrative_psychology.md
+│   │   └── ...
+│   │
+│   └── cognitive_frameworks/
+│       ├── rationalizations_and_defenses.md
+│       ├── attribution_theory.md
+│       ├── cognitive_dissonance_research.md
+│       └── ...
+│
+├── pain_taxonomy/
+│   ├── domains_of_suffering/
+│   │   ├── professional_pains/
+│   │   │   ├── career_stagnation_patterns.md
+│   │   │   ├── workplace_conflict_taxonomy.md
+│   │   │   ├── professional_identity_crises.md
+│   │   │   └── ...
+│   │   │
+│   │   ├── relationship_pains/
+│   │   │   ├── connection_deficit_patterns.md
+│   │   │   ├── intimacy_barriers.md
+│   │   │   ├── social_rejection_experiences.md
+│   │   │   └── ...
+│   │   │
+│   │   ├── health_wellbeing_pains/
+│   │   │   ├── energy_depletion_patterns.md
+│   │   │   ├── bodily_dissatisfaction.md
+│   │   │   ├── mental_health_struggles.md
+│   │   │   └── ...
+│   │   │
+│   │   ├── financial_pains/
+│   │   │   ├── financial_insecurity_patterns.md
+│   │   │   ├── economic_mobility_barriers.md
+│   │   │   ├── money_relationship_dysfunctions.md
+│   │   │   └── ...
+│   │   │
+│   │   └── existential_pains/
+│   │       ├── meaning_deficit_patterns.md
+│   │       ├── purpose_confusion.md
+│   │       ├── legacy_anxiety.md
+│   │       └── ...
+│   │
+│   ├── pain_by_demographic/
+│   │   ├── generational_pain_patterns/
+│   │   │   ├── gen_z_specific_struggles.md
+│   │   │   ├── millennial_pain_points.md
+│   │   │   ├── gen_x_frustrations.md
+│   │   │   ├── boomer_challenges.md
+│   │   │   └── ...
+│   │   │
+│   │   ├── gender_specific_pains/
+│   │   │   ├── women_specific_challenges.md
+│   │   │   ├── men_specific_struggles.md
+│   │   │   ├── nonbinary_unique_difficulties.md
+│   │   │   └── ...
+│   │   │
+│   │   ├── cultural_pain_patterns/
+│   │   │   ├── cross_cultural_analysis.md
+│   │   │   ├── minority_experience_challenges.md
+│   │   │   ├── immigration_related_struggles.md
+│   │   │   └── ...
+│   │   │
+│   │   └── socioeconomic_pains/
+│   │       ├── class_specific_challenges.md
+│   │       ├── economic_mobility_barriers.md
+│   │       ├── resource_scarcity_effects.md
+│   │       └── ...
+│   │
+│   └── pain_by_intensity/
+│       ├── chronic_vs_acute_suffering.md
+│       ├── background_vs_foreground_pains.md
+│       ├── articulated_vs_unarticulated_pains.md
+│       └── ...
+│
+├── articulation_techniques/
+│   ├── linguistic_frameworks/
+│   │   ├── emotional_granularity_vocabulary.md
+│   │   ├── pain_expression_patterns.md
+│   │   ├── effective_validation_language.md
+│   │   └── ...
+│   │
+│   ├── narrative_structures/
+│   │   ├── pain_storytelling_frameworks.md
+│   │   ├── resonant_scenario_construction.md
+│   │   ├── identity_narrative_integration.md
+│   │   └── ...
+│   │
+│   ├── metaphor_development/
+│   │   ├── pain_metaphor_catalog.md
+│   │   ├── somatic_metaphor_techniques.md
+│   │   ├── cross_domain_mapping.md
+│   │   └── ...
+│   │
+│   └── calibration_techniques/
+│       ├── empathic_accuracy_methods.md
+│       ├── resonance_testing_protocols.md
+│       ├── over_under_articulation_balance.md
+│       └── ...
+│
+├── consequence_mapping/
+│   ├── systemic_impact_models/
+│   │   ├── cascade_effect_frameworks.md
+│   │   ├── interconnected_domains_analysis.md
+│   │   ├── feedback_loop_patterns.md
+│   │   └── ...
+│   │
+│   ├── temporal_impact_frameworks/
+│   │   ├── short_term_consequence_patterns.md
+│   │   ├── long_term_effect_trajectories.md
+│   │   ├── cumulative_impact_analysis.md
+│   │   └── ...
+│   │
+│   ├── opportunity_cost_evaluation/
+│   │   ├── potential_foregone_analysis.md
+│   │   ├── alternative_path_comparison.md
+│   │   ├── unrealized_possibility_frameworks.md
+│   │   └── ...
+│   │
+│   └── visualization_techniques/
+│       ├── consequence_tree_mapping.md
+│       ├── impact_scenario_construction.md
+│       ├── contrast_narrative_development.md
+│       └── ...
+│
+├── implementation_studies/
+│   ├── market_applications/
+│   │   ├── financial_services_case_studies.md
+│   │   ├── health_wellness_applications.md
+│   │   ├── professional_development_examples.md
+│   │   └── ...
+│   │
+│   ├── message_resonance_research/
+│   │   ├── pain_articulation_response_data.md
+│   │   ├── validation_language_effectiveness.md
+│   │   ├── comparative_messaging_studies.md
+│   │   └── ...
+│   │
+│   └── ethical_frameworks/
+│       ├── empathic_communication_ethics.md
+│       ├── pain_amplification_boundaries.md
+│       ├── responsible_pain_addressing.md
+│       └── ...
+

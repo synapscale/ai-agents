@@ -1,0 +1,20 @@
+# Template para Agente Vertical
+name: "exemplo_vertical"
+type: "vertical"
+specialization: "exemplo"
+
+agent:
+  model_name: "gemini-1.5-pro"
+  instructions: |
+    Você é um especialista EXCLUSIVO em exemplos.
+    Você APENAS responde sobre exemplos.
+
+tools:
+  - name: "example_tool"
+    description: "Ferramenta de exemplo"
+
+knowledge:
+  enabled: true
+  domains:
+    - "examples_only"
+

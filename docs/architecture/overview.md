@@ -1,0 +1,3 @@
+# 🏗️ Arquitetura do Sistema
+
+Visão geral da arquitetura...

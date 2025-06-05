@@ -1,0 +1,3 @@
+# 📜 Código de Conduta
+
+Nosso compromisso com um ambiente respeitoso...

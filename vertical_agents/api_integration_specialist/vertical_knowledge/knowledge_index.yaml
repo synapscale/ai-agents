@@ -1,0 +1,22 @@
+agents_source:
+- APIUnifyMaster
+- APIsImputOutputMapper
+- HotmartAPIMaster
+- KiwifyAPIMaster
+- PaytAPIMaster
+- PerfectpayAPIMaster
+domain: "Especialista em integra\xE7\xF5es de APIs e sistemas"
+focus_areas:
+- api_integration
+- webhooks
+- payment_systems
+- platform_apis
+keywords:
+- api
+- integration
+- webhook
+- endpoint
+- rest
+- json
+- http
+knowledge_type: vertical_specialized

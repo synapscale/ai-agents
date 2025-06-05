@@ -1,0 +1,14 @@
+agents_source:
+- DocRAGOptimizer
+domain: "Especialista em curadoria e gest\xE3o de conhecimento"
+focus_areas:
+- knowledge_management
+- rag_optimization
+- documentation_systems
+keywords:
+- knowledge
+- curation
+- rag
+- documentation
+- information
+knowledge_type: vertical_specialized

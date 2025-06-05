@@ -1,0 +1,214 @@
+# Configuração do Sistema de Memória Unificado
+
+# Configuração Principal do VectorMemoryService
+memory_service:
+  provider: "vertex_ai"  # vertex_ai, chroma, pinecone
+  embedding_model: "text-embedding-ada-002"
+  dimensions: 1536
+  
+  # Configurações de Performance
+  performance:
+    batch_size: 100
+    max_concurrent_requests: 10
+    timeout_seconds: 30
+    retry_attempts: 3
+    
+  # Configurações de Cache
+  cache:
+    enabled: true
+    ttl_hours: 24
+    max_cache_size_mb: 1000
+
+# Coleções de Conhecimento Especializadas
+collections:
+  paradigm_shift:
+    name: "paradigm_shift_knowledge"
+    description: "Conhecimento especializado em mudança de paradigmas"
+    metadata_schema:
+      domain: "string"
+      complexity_level: "integer"
+      effectiveness_score: "float"
+      source_type: "string"
+    indexing:
+      similarity_metric: "cosine"
+      index_type: "hnsw"
+      
+  persuasion_frameworks:
+    name: "persuasion_frameworks_knowledge"
+    description: "Frameworks de persuasão comprovados"
+    metadata_schema:
+      framework_type: "string"
+      industry: "string"
+      conversion_rate: "float"
+      complexity: "integer"
+    indexing:
+      similarity_metric: "cosine"
+      index_type: "hnsw"
+      
+  sales_psychology:
+    name: "sales_psychology_knowledge"
+    description: "Conhecimento em psicologia de vendas"
+    metadata_schema:
+      psychological_principle: "string"
+      target_audience: "string"
+      effectiveness: "float"
+      research_backing: "boolean"
+    indexing:
+      similarity_metric: "cosine"
+      index_type: "hnsw"
+      
+  cognitive_biases:
+    name: "cognitive_biases_knowledge"
+    description: "Vieses cognitivos aplicados a vendas"
+    metadata_schema:
+      bias_type: "string"
+      application_context: "string"
+      strength: "float"
+      ethical_considerations: "string"
+    indexing:
+      similarity_metric: "cosine"
+      index_type: "hnsw"
+      
+  behavioral_economics:
+    name: "behavioral_economics_knowledge"
+    description: "Princípios de economia comportamental"
+    metadata_schema:
+      principle_name: "string"
+      application_area: "string"
+      research_quality: "integer"
+      practical_examples: "array"
+    indexing:
+      similarity_metric: "cosine"
+      index_type: "hnsw"
+      
+  conversion_optimization:
+    name: "conversion_optimization_knowledge"
+    description: "Técnicas de otimização de conversão"
+    metadata_schema:
+      technique_type: "string"
+      channel: "string"
+      lift_percentage: "float"
+      test_confidence: "float"
+    indexing:
+      similarity_metric: "cosine"
+      index_type: "hnsw"
+      
+  neurohook_techniques:
+    name: "neurohook_techniques_knowledge"
+    description: "Técnicas avançadas de neurohook"
+    metadata_schema:
+      technique_name: "string"
+      neurological_basis: "string"
+      application_timing: "string"
+      intensity_level: "integer"
+    indexing:
+      similarity_metric: "cosine"
+      index_type: "hnsw"
+
+# Configuração de RAG (Retrieval-Augmented Generation)
+rag_config:
+  retrieval:
+    top_k: 5
+    similarity_threshold: 0.8
+    rerank: true
+    rerank_model: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+    
+  generation:
+    context_window: 4000
+    max_context_tokens: 3000
+    overlap_tokens: 200
+    
+  fusion:
+    strategy: "weighted_average"  # weighted_average, max_score, rrf
+    weights:
+      semantic_similarity: 0.7
+      metadata_relevance: 0.2
+      recency: 0.1
+
+# Configuração de Ingestão de Conhecimento
+ingestion:
+  sources:
+    - type: "markdown_files"
+      path: "src/knowledge/"
+      recursive: true
+      file_patterns: ["*.md", "*.txt"]
+      
+    - type: "pdf_documents"
+      path: "data/documents/"
+      recursive: true
+      file_patterns: ["*.pdf"]
+      
+    - type: "web_scraping"
+      urls: []  # URLs para scraping automático
+      schedule: "weekly"
+      
+  processing:
+    chunk_size: 1000
+    chunk_overlap: 200
+    text_splitter: "recursive_character"
+    
+    preprocessing:
+      remove_headers: true
+      remove_footers: true
+      normalize_whitespace: true
+      extract_metadata: true
+      
+  quality_control:
+    min_chunk_length: 100
+    max_chunk_length: 2000
+    filter_duplicates: true
+    similarity_threshold_dedup: 0.95
+
+# Configuração de Backup e Sincronização
+backup:
+  enabled: true
+  frequency: "daily"
+  retention_days: 30
+  storage_location: "gs://unified-sales-framework-backups"
+  
+  sync:
+    cross_region: true
+    regions: ["us-central1", "europe-west1"]
+    consistency_check: true
+
+# Configuração de Monitoramento
+monitoring:
+  metrics:
+    - "query_latency"
+    - "retrieval_accuracy"
+    - "cache_hit_rate"
+    - "embedding_quality"
+    - "collection_usage"
+    
+  alerts:
+    - metric: "query_latency"
+      threshold: 5000  # ms
+      action: "scale_up"
+      
+    - metric: "cache_hit_rate"
+      threshold: 0.7
+      action: "optimize_cache"
+      
+  logging:
+    level: "INFO"
+    include_queries: true
+    include_results: false  # Por privacidade
+    retention_days: 90
+
+# Configuração de Segurança
+security:
+  encryption:
+    at_rest: true
+    in_transit: true
+    key_management: "google_kms"
+    
+  access_control:
+    authentication_required: true
+    role_based_access: true
+    audit_logging: true
+    
+  privacy:
+    anonymize_queries: false
+    data_retention_policy: "2_years"
+    gdpr_compliant: true
+

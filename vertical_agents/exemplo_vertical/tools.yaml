@@ -1,0 +1,7 @@
+tools:
+  - name: exemplo_analyzer
+    description: Analisa exemplo
+  - name: exemplo_optimizer  
+    description: Otimiza exemplo
+  - name: exemplo_validator
+    description: Valida exemplo

@@ -1,105 +1,143 @@
-# Site do Agente Vertical AI
+# Unified Sales Framework
 
-Este projeto contém o código-fonte para o site do Agente Vertical AI, que inclui uma seção de documentação e uma interface de chat interativa.
+**Combinando a especialização vertical do Multi-Agent-AI-System com a infraestrutura robusta do ADK-Python**
 
-## Estrutura do Projeto
+## Visão Geral
 
--   `/frontend`: Contém a aplicação Next.js para a interface do usuário (documentação e chat).
--   `/api`: Contém as funções serverless Python (Flask) que servem como backend para o chat, integrando-se com o `MainAgent`.
--   `/content/docs`: Arquivos Markdown da documentação.
--   `vercel.json`: Configuração de build e roteamento para a Vercel.
+O Unified Sales Framework é uma plataforma revolucionária que unifica:
 
-## Pré-requisitos
+1. **Agentes de Vendas Especializados** - 67 agentes verticais profundamente especializados em copywriting, APIs, analytics e knowledge management
+2. **Infraestrutura Robusta** - Baseada no Agent Development Kit (ADK) do Google para deploy empresarial e escalabilidade
+3. **Geração Automática** - Sistema de geração de agentes a partir de templates YAML
+4. **Conhecimento Especializado** - 42 bases de conhecimento vetoriais para diferentes domínios de vendas
+5. **Monitoramento Avançado** - Métricas específicas de vendas e conversão
 
--   Node.js (versão recomendada pelo Next.js)
--   pnpm (gerenciador de pacotes usado no frontend)
--   Python (versão 3.9+ para as funções serverless)
--   Conta na Vercel para implantação.
--   Credenciais para os serviços utilizados pelo agente (OpenAI, Google Gemini, Anthropic Claude, Groq, Hugging Face Hub, Redis, Supabase).
+## Arquitetura
 
-## Configuração do Ambiente Local (para Desenvolvimento e Teste)
+```
+unified-sales-framework/
+├── src/                      # Código fonte principal
+│   ├── agents/               # Agentes especializados
+│   │   ├── copywriting/      # Agentes de copywriting (PARADIGM-ARCHITECT, etc.)
+│   │   ├── apis/             # Agentes de integração de APIs (APIUnifyMaster, etc.)
+│   │   ├── analytics/        # Agentes de análise (ANALYTICSGPT, etc.)
+│   │   └── knowledge/        # Agentes de gestão de conhecimento (DocRAGOptimizer, etc.)
+│   ├── core/                 # Componentes core do framework
+│   ├── tools/                # Ferramentas especializadas
+│   ├── knowledge/            # Sistema de conhecimento unificado
+│   └── generation/           # Sistema de geração automática
+├── templates/                # Templates para geração de agentes
+│   └── unified_sales_agent_template/  # Template definitivo unificado
+├── examples/                 # Exemplos práticos
+├── deployment/               # Configurações de deployment
+├── cli/                      # Interface de linha de comando
+├── tests/                    # Testes automatizados
+└── docs/                     # Documentação
+```
 
-1.  **Clonar o Repositório (se aplicável) ou Descompactar o Projeto.**
+## Recursos Principais
 
-2.  **Configurar o Frontend:**
-    ```bash
-    cd frontend
-    pnpm install
-    ```
+### 1. Template Definitivo Unificado
 
-3.  **Configurar o Backend (Funções Serverless Python):**
-    -   Crie um ambiente virtual Python na raiz do projeto ou dentro da pasta `api`:
-        ```bash
-        python -m venv .venv
-        source .venv/bin/activate  # Linux/macOS
-        # .venv\Scripts\activate    # Windows
-        ```
-    -   Instale as dependências Python:
-        ```bash
-        pip install -r api/requirements.txt
-        ```
+O coração do framework é o **Template Definitivo Unificado** que combina:
 
-4.  **Variáveis de Ambiente:**
-    -   O backend (`api/chat.py`) e o agente (`api/agent_src/`) dependem de variáveis de ambiente para as API keys e configurações de serviços (Redis, Supabase, LLMs).
-    -   Para desenvolvimento local, crie um arquivo `.env` na raiz do projeto `vertical_agent_website` (ou configure-as diretamente no seu sistema). O `agent_src` utiliza `python-dotenv` para carregar variáveis de um arquivo `.env` localizado na raiz de execução do agente (que, no contexto da API, é `api/agent_src`).
-    -   Exemplo de variáveis necessárias (consulte `my_vertical_agent/config/.env.example` do template original para a lista completa):
-        ```
-        OPENAI_API_KEY="sk-..."
-        GOOGLE_API_KEY="AIza..."
-        ANTHROPIC_API_KEY="sk-ant-..."
-        GROQ_API_KEY="gsk_..."
-        HUGGINGFACE_API_KEY="hf_..."
-        REDIS_HOST="localhost"
-        REDIS_PORT="6379"
-        REDIS_PASSWORD="your_redis_password_or_empty"
-        REDIS_CHAT_HISTORY_KEY_PREFIX="chat_history:"
-        SUPABASE_URL="https://your-project.supabase.co"
-        SUPABASE_KEY="your-supabase-anon-key"
-        EMBEDDINGS_MODEL_NAME="text-embedding-ada-002"
-        # ...e outras configurações específicas dos LLMs e do agente.
-        ```
+- **Estrutura Hierárquica** - Agente principal + 5 subagentes especializados
+- **Sistema de Conhecimento Multi-Domínio** - Com VectorMemoryService
+- **Ferramentas Especializadas** - Para cada função de vendas
+- **Modelos Múltiplos** - Com fallback automático
+- **Deploy Empresarial** - Com scaling e monitoramento
 
-5.  **Executar Localmente com `vercel dev`:**
-    -   Instale a Vercel CLI: `npm install -g vercel`
-    -   Na raiz do projeto `vertical_agent_website`, execute:
-        ```bash
-        vercel dev
-        ```
-    -   Isso iniciará o frontend Next.js e as funções serverless Python simultaneamente, simulando o ambiente da Vercel.
-    -   Acesse o site em `http://localhost:3000` (ou a porta indicada pelo `vercel dev`).
+### 2. CLI Unificado
 
-## Implantação na Vercel
+```bash
+# Criar agente de vendas especializado
+uaf create sales-agent --type=paradigm-architect --market=b2b_saas
 
-1.  **Repositório Git:**
-    -   Certifique-se de que seu projeto está em um repositório Git (GitHub, GitLab, Bitbucket).
+# Migrar agente existente
+uaf migrate agent --source=paradigm_architect --target=unified_sales
 
-2.  **Conectar à Vercel:**
-    -   Acesse sua conta Vercel e crie um novo projeto.
-    -   Importe o repositório Git.
+# Gerar campanha completa
+uaf generate campaign --agent=paradigm_architect --briefing=./client_briefings/tech_startup.yaml
 
-3.  **Configurações do Projeto na Vercel:**
-    -   **Framework Preset:** Vercel deve detectar Next.js automaticamente para o frontend.
-    -   **Build and Output Settings:**
-        -   Geralmente, as configurações padrão do Next.js funcionam. O `vercel.json` fornecido ajuda a Vercel a entender a estrutura monorepo com o backend Python.
-        -   Verifique se o "Root Directory" está configurado corretamente (deve ser a raiz do projeto `vertical_agent_website` se o `vercel.json` estiver lá).
-    -   **Environment Variables:**
-        -   Configure todas as variáveis de ambiente necessárias (API keys, Redis, Supabase, etc.) nas configurações do projeto na Vercel. Estas são as mesmas variáveis que você usaria localmente no seu `.env`.
-        -   **IMPORTANTE:** Sem essas variáveis, o agente no backend não funcionará.
+# Deploy para produção
+uaf deploy agent --name=PARADIGM-ARCHITECT --platform=vertex_ai
+```
 
-4.  **Deploy:**
-    -   Inicie o deploy através da interface da Vercel.
-    -   A Vercel instalará as dependências do `frontend` (usando `pnpm install` se `pnpm-lock.yaml` estiver presente) e do `api` (usando `pip install -r api/requirements.txt`).
+### 3. Sistema de Conhecimento Unificado
 
-5.  **Testar:**
-    -   Após o deploy bem-sucedido, acesse a URL pública fornecida pela Vercel e teste todas as funcionalidades (documentação e chat interativo).
+- **42 Bases de Conhecimento** - Organizadas por domínio
+- **Embeddings Otimizados** - Para recuperação precisa
+- **RAG Avançado** - Com feedback loop para melhoria contínua
+- **Ferramentas de Recuperação** - Integradas aos agentes
 
-## Solução de Problemas Comuns na Vercel
+### 4. Monitoramento Especializado
 
--   **Erros de Importação no Backend Python:** Verifique se o `sys.path` está configurado corretamente em `api/chat.py` para encontrar os módulos do `agent_src`. Os logs da função na Vercel são essenciais para depuração.
--   **Timeout de Funções Serverless:** Funções na Vercel têm limites de execução. Se o agente demorar muito para responder, pode ocorrer timeout. Otimize a performance do agente ou considere estratégias para respostas assíncronas se necessário.
--   **Variáveis de Ambiente Não Encontradas:** Confirme se todas as variáveis foram adicionadas corretamente no painel da Vercel e se os nomes correspondem exatamente ao esperado pelo código.
--   **Problemas de CORS:** O `Flask-CORS(app)` em `api/chat.py` deve permitir requisições do domínio do seu frontend na Vercel. Se houver problemas, pode ser necessário ajustar a configuração do CORS.
--   **Caminhos de Arquivo:** Funções serverless têm um sistema de arquivos efêmero. O agente não deve depender de salvar arquivos localmente de forma persistente entre invocações. Use serviços externos como Redis ou Supabase para persistência.
+- **Métricas de Conversão** - Por agente e campanha
+- **Efetividade de Paradigma** - Medição de mudança conceitual
+- **Tempo de Ciclo de Venda** - Otimização de funil
+- **Satisfação do Cliente** - Via feedback automatizado
 
-Lembre-se de que o `MainAgent` e seus subcomponentes foram projetados para serem configuráveis e podem precisar de ajustes finos nos arquivos YAML de configuração (dentro de `api/agent_src/agents/...`) para otimizar o comportamento para casos de uso específicos ou diferentes modelos LLM.
+## Começando
+
+### Instalação
+
+```bash
+# Clonar o repositório
+git clone https://github.com/unified-sales-framework/unified-sales-framework.git
+cd unified-sales-framework
+
+# Criar ambiente virtual
+python -m venv .venv
+source .venv/bin/activate  # No Windows: .venv\Scripts\activate
+
+# Instalar dependências
+make install-dev
+```
+
+### Configuração
+
+1. Copie `.env.example` para `.env.local` e configure suas credenciais:
+   ```bash
+   cp .env.example .env.local
+   ```
+
+2. Edite `.env.local` com suas chaves de API e configurações
+
+### Uso Básico
+
+```python
+from unified_sales_framework.agents import ParadigmArchitectAgent
+from unified_sales_framework.core import UnifiedKnowledgeSystem
+
+# Inicializar sistema de conhecimento
+knowledge = UnifiedKnowledgeSystem()
+knowledge.load_domain("paradigm_shift")
+
+# Criar agente
+agent = ParadigmArchitectAgent(
+    memory_service=knowledge.get_memory_service("paradigm_shift"),
+    tools=[knowledge.get_retrieval_tool("paradigm_shift")]
+)
+
+# Executar agente
+result = agent.run("Crie um framework persuasivo para venda de software B2B")
+print(result)
+```
+
+## Documentação
+
+Para documentação completa, visite [docs.unified-sales-framework.com](https://docs.unified-sales-framework.com)
+
+## Contribuindo
+
+Contribuições são bem-vindas! Por favor, leia [CONTRIBUTING.md](CONTRIBUTING.md) para detalhes sobre nosso código de conduta e processo de submissão de pull requests.
+
+## Licença
+
+Este projeto é licenciado sob a Licença Apache 2.0 - veja o arquivo [LICENSE](LICENSE) para detalhes.
+
+## Agradecimentos
+
+- Google ADK Team - Pela infraestrutura robusta
+- Multi-Agent-AI-System Team - Pelos agentes especializados
 

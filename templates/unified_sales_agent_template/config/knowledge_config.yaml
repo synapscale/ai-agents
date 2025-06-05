@@ -1,0 +1,300 @@
+# Configuração do Sistema de Conhecimento Unificado
+
+# Domínios de Conhecimento Especializados
+domains:
+  paradigm_shift:
+    name: "Mudança de Paradigmas"
+    description: "Conhecimento especializado em transformação de paradigmas de venda"
+    priority: 1  # Prioridade mais alta
+    sources:
+      - type: "markdown"
+        path: "src/knowledge/paradigm_shift/"
+        patterns: ["*.md"]
+      - type: "pdf"
+        path: "data/documents/paradigm_shift/"
+        patterns: ["*.pdf"]
+    metadata:
+      domain_type: "core"
+      expertise_level: "advanced"
+      update_frequency: "monthly"
+    
+  persuasion_frameworks:
+    name: "Frameworks de Persuasão"
+    description: "Frameworks conceituais para persuasão avançada"
+    priority: 2
+    sources:
+      - type: "markdown"
+        path: "src/knowledge/persuasion_frameworks/"
+        patterns: ["*.md"]
+      - type: "pdf"
+        path: "data/documents/persuasion_frameworks/"
+        patterns: ["*.pdf"]
+    metadata:
+      domain_type: "core"
+      expertise_level: "advanced"
+      update_frequency: "quarterly"
+    
+  sales_psychology:
+    name: "Psicologia de Vendas"
+    description: "Princípios psicológicos aplicados a vendas"
+    priority: 2
+    sources:
+      - type: "markdown"
+        path: "src/knowledge/sales_psychology/"
+        patterns: ["*.md"]
+      - type: "pdf"
+        path: "data/documents/sales_psychology/"
+        patterns: ["*.pdf"]
+    metadata:
+      domain_type: "core"
+      expertise_level: "advanced"
+      update_frequency: "quarterly"
+    
+  cognitive_biases:
+    name: "Vieses Cognitivos"
+    description: "Vieses cognitivos aplicados a vendas e persuasão"
+    priority: 3
+    sources:
+      - type: "markdown"
+        path: "src/knowledge/cognitive_biases/"
+        patterns: ["*.md"]
+      - type: "pdf"
+        path: "data/documents/cognitive_biases/"
+        patterns: ["*.pdf"]
+    metadata:
+      domain_type: "supporting"
+      expertise_level: "intermediate"
+      update_frequency: "biannual"
+    
+  behavioral_economics:
+    name: "Economia Comportamental"
+    description: "Princípios de economia comportamental aplicados a vendas"
+    priority: 3
+    sources:
+      - type: "markdown"
+        path: "src/knowledge/behavioral_economics/"
+        patterns: ["*.md"]
+      - type: "pdf"
+        path: "data/documents/behavioral_economics/"
+        patterns: ["*.pdf"]
+    metadata:
+      domain_type: "supporting"
+      expertise_level: "advanced"
+      update_frequency: "biannual"
+    
+  conversion_optimization:
+    name: "Otimização de Conversão"
+    description: "Técnicas e estratégias para otimização de conversão"
+    priority: 2
+    sources:
+      - type: "markdown"
+        path: "src/knowledge/conversion_optimization/"
+        patterns: ["*.md"]
+      - type: "pdf"
+        path: "data/documents/conversion_optimization/"
+        patterns: ["*.pdf"]
+    metadata:
+      domain_type: "core"
+      expertise_level: "intermediate"
+      update_frequency: "monthly"
+    
+  neurohook_techniques:
+    name: "Técnicas de Neurohook"
+    description: "Técnicas avançadas de neurohook para persuasão"
+    priority: 2
+    sources:
+      - type: "markdown"
+        path: "src/knowledge/neurohook_techniques/"
+        patterns: ["*.md"]
+      - type: "pdf"
+        path: "data/documents/neurohook_techniques/"
+        patterns: ["*.pdf"]
+    metadata:
+      domain_type: "core"
+      expertise_level: "advanced"
+      update_frequency: "quarterly"
+
+# Configuração de Processamento de Conhecimento
+processing:
+  chunking:
+    strategy: "semantic"  # semantic, fixed_size, paragraph
+    chunk_size: 1000
+    chunk_overlap: 200
+    respect_sections: true
+    respect_paragraphs: true
+    
+  embedding:
+    model: "text-embedding-ada-002"
+    dimensions: 1536
+    batch_size: 100
+    normalize: true
+    
+  metadata_extraction:
+    extract_titles: true
+    extract_headings: true
+    extract_keywords: true
+    extract_entities: true
+    extract_summary: true
+    
+  quality_control:
+    min_chunk_length: 100
+    max_chunk_length: 2000
+    filter_duplicates: true
+    similarity_threshold: 0.95
+    content_quality_check: true
+
+# Configuração de Recuperação de Conhecimento
+retrieval:
+  strategies:
+    default:
+      top_k: 5
+      similarity_threshold: 0.8
+      rerank: true
+      rerank_model: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+      
+    high_precision:
+      top_k: 3
+      similarity_threshold: 0.85
+      rerank: true
+      rerank_model: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+      
+    high_recall:
+      top_k: 10
+      similarity_threshold: 0.7
+      rerank: true
+      rerank_model: "cross-encoder/ms-marco-MiniLM-L-6-v2"
+      
+  fusion:
+    strategy: "weighted_average"  # weighted_average, max_score, rrf
+    weights:
+      semantic_similarity: 0.7
+      metadata_relevance: 0.2
+      recency: 0.1
+      
+  hybrid:
+    enabled: true
+    keyword_weight: 0.3
+    semantic_weight: 0.7
+
+# Configuração de Ferramentas de Conhecimento
+tools:
+  paradigm_shift_retrieval:
+    name: "paradigm_shift_knowledge"
+    description: "Busca conhecimento especializado em mudança de paradigmas"
+    domain: "paradigm_shift"
+    strategy: "default"
+    
+  persuasion_frameworks_retrieval:
+    name: "persuasion_frameworks_knowledge"
+    description: "Busca frameworks de persuasão comprovados"
+    domain: "persuasion_frameworks"
+    strategy: "default"
+    
+  sales_psychology_retrieval:
+    name: "sales_psychology_knowledge"
+    description: "Busca conhecimento em psicologia de vendas"
+    domain: "sales_psychology"
+    strategy: "default"
+    
+  cognitive_biases_retrieval:
+    name: "cognitive_biases_knowledge"
+    description: "Busca conhecimento sobre vieses cognitivos"
+    domain: "cognitive_biases"
+    strategy: "default"
+    
+  behavioral_economics_retrieval:
+    name: "behavioral_economics_knowledge"
+    description: "Busca conhecimento em economia comportamental"
+    domain: "behavioral_economics"
+    strategy: "default"
+    
+  conversion_optimization_retrieval:
+    name: "conversion_optimization_knowledge"
+    description: "Busca técnicas de otimização de conversão"
+    domain: "conversion_optimization"
+    strategy: "default"
+    
+  neurohook_techniques_retrieval:
+    name: "neurohook_techniques_knowledge"
+    description: "Busca técnicas avançadas de neurohook"
+    domain: "neurohook_techniques"
+    strategy: "default"
+
+# Configuração de Atualização de Conhecimento
+updates:
+  schedule:
+    paradigm_shift: "monthly"
+    persuasion_frameworks: "quarterly"
+    sales_psychology: "quarterly"
+    cognitive_biases: "biannual"
+    behavioral_economics: "biannual"
+    conversion_optimization: "monthly"
+    neurohook_techniques: "quarterly"
+    
+  sources:
+    - name: "research_papers"
+      type: "pdf"
+      path: "data/updates/research/"
+      schedule: "monthly"
+      
+    - name: "industry_reports"
+      type: "pdf"
+      path: "data/updates/industry/"
+      schedule: "quarterly"
+      
+    - name: "case_studies"
+      type: "markdown"
+      path: "data/updates/cases/"
+      schedule: "monthly"
+      
+    - name: "expert_insights"
+      type: "markdown"
+      path: "data/updates/experts/"
+      schedule: "biweekly"
+      
+  processing:
+    automatic: true
+    approval_required: true
+    notify_on_update: true
+    version_control: true
+    
+  quality_control:
+    source_verification: true
+    content_validation: true
+    expert_review: true
+    conflict_resolution: "manual"  # manual, newest, highest_confidence
+
+# Configuração de Feedback Loop
+feedback_loop:
+  enabled: true
+  
+  sources:
+    - "agent_usage"
+    - "user_feedback"
+    - "conversion_metrics"
+    - "retrieval_analytics"
+    
+  metrics:
+    - "relevance_score"
+    - "helpfulness_score"
+    - "conversion_impact"
+    - "retrieval_frequency"
+    
+  actions:
+    - trigger: "low_relevance"
+      action: "reindex"
+      threshold: 0.6
+      
+    - trigger: "high_retrieval"
+      action: "prioritize"
+      threshold: 10  # vezes por dia
+      
+    - trigger: "low_helpfulness"
+      action: "review"
+      threshold: 0.5
+      
+  continuous_improvement:
+    enabled: true
+    review_frequency: "weekly"
+    auto_optimization: true
+

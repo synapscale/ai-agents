@@ -1,0 +1,103 @@
+# Configuração do Agente Principal
+agent:
+  name: "PARADIGM-ARCHITECT"
+  type: "Agent"  # Agent, LlmAgent, LoopAgent
+  model: "claude-3-opus"
+  fallback_model: "gpt-4-turbo"
+  max_tokens: 4000
+  temperature: 0.8
+  
+# Sistema de Delegação
+delegation:
+  threshold: 0.75
+  max_iterations: 5
+  confidence_model: "gpt-4-turbo"  # Modelo para avaliar confiança de delegação
+  
+# Configuração de Subagentes
+subagents:
+  - name: "AXIOM-ARCHAEOLOGIST"
+    type: "LlmAgent"
+    model: "claude-3-sonnet"
+    specialization: "axiom_discovery"
+    description: "Especialista em identificar bloqueios mentais e pressupostos limitantes"
+    threshold: 0.75
+    
+  - name: "CONCEPT-ARCHITECT"
+    type: "LoopAgent"
+    model: "gpt-4-turbo"
+    specialization: "concept_creation"
+    description: "Especialista em construir frameworks conceituais persuasivos"
+    max_iterations: 3
+    threshold: 0.75
+    
+  - name: "PARADIGMATIC-LINGUIST"
+    type: "LlmAgent"
+    model: "claude-3-opus"
+    specialization: "linguistic_persuasion"
+    description: "Especialista em criar linguagem e narrativas persuasivas"
+    threshold: 0.75
+    
+  - name: "LEGITIMACY-ENGINEER"
+    type: "LlmAgent"
+    model: "gpt-4-turbo"
+    specialization: "credibility_building"
+    description: "Especialista em construir credibilidade e sistemas de prova"
+    threshold: 0.75
+    
+  - name: "TRANSDISCIPLINARY-SYNTHESIZER"
+    type: "LlmAgent"
+    model: "claude-3-opus"
+    specialization: "transdisciplinary_synthesis"
+    description: "Especialista em criar analogias e conexões entre domínios"
+    threshold: 0.75
+
+# Configuração de Conhecimento
+knowledge:
+  domains:
+    - "paradigm_shift"
+    - "persuasion_frameworks"
+    - "sales_psychology"
+    - "cognitive_biases"
+    - "behavioral_economics"
+    - "conversion_optimization"
+    - "neurohook_techniques"
+  
+  retrieval:
+    top_k: 5
+    similarity_threshold: 0.8
+    rerank: true
+    
+  embedding:
+    model: "text-embedding-ada-002"
+    dimensions: 1536
+
+# Configuração de Monitoramento
+monitoring:
+  track_delegations: true
+  track_performance: true
+  track_conversions: true
+  
+  metrics:
+    - "delegation_accuracy"
+    - "subagent_utilization"
+    - "response_quality"
+    - "conversion_impact"
+    
+# Configuração de Deploy
+deployment:
+  platform: "vertex_ai"  # vertex_ai, cloud_run, kubernetes
+  scaling:
+    min_replicas: 1
+    max_replicas: 10
+    target_cpu: 70
+  
+  resources:
+    cpu: "2"
+    memory: "4Gi"
+    
+  environment:
+    - name: "AGENT_TYPE"
+      value: "PARADIGM_ARCHITECT"
+    - name: "LOG_LEVEL"
+      value: "INFO"
+

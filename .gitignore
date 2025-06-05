@@ -1,3 +1,7 @@
+# ========================================
+# PYTHON
+# ========================================
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -70,6 +74,9 @@ instance/
 
 # Sphinx documentation
 docs/_build/
+_build/
+.doctrees/
+.buildinfo
 
 # PyBuilder
 .pybuilder/
@@ -127,14 +134,309 @@ celerybeat.pid
 # SageMath parsed files
 *.sage.py
 
-# Environments
+# Ruff stuff:
+.ruff_cache/
+
+# PyPI configuration file
+.pypirc
+
+# ========================================
+# NODE.JS / NEXT.JS / FRONTEND
+# ========================================
+
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Frontend specific (from discovered structure)
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/dist/
+frontend/node_modules/
+
+# Production builds
+build/
+dist/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# nyc test coverage
+.nyc_output
+
+# Grunt intermediate storage (https://gruntjs.com/creating-plugins#storing-task-files)
+.grunt
+
+# Bower dependency directory (https://bower.io/)
+bower_components
+
+# node-waf configuration
+.lock-wscript
+
+# Compiled binary addons (https://nodejs.org/api/addons.html)
+build/Release
+
+# Dependency directories
+jspm_packages/
+
+# TypeScript cache
+*.tsbuildinfo
+
+# Optional npm cache directory
+.npm
+
+# Optional eslint cache
+.eslintcache
+
+# Optional stylelint cache
+.stylelintcache
+
+# Microbundle cache
+.rpt2_cache/
+.rts2_cache_cjs/
+.rts2_cache_es/
+.rts2_cache_umd/
+
+# Optional REPL history
+.node_repl_history
+
+# Output of 'npm pack'
+*.tgz
+
+# Yarn Integrity file
+.yarn-integrity
+
+# parcel-bundler cache (https://parceljs.org/)
+.parcel-cache/
+
+# Stores VSCode versions used for testing VSCode extensions
+.vscode-test
+
+# yarn v2
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# ========================================
+# ENVIRONMENT VARIABLES & SECRETS
+# ========================================
+
+# Environment files
 .env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.example
+config/.env
+config/.env.local
+config/.env.development
+config/.env.test
+config/.env.production
+
+# Secret files
+secrets/
+*.key
+*.pem
+*.p12
+*.pfx
+
+# API Keys and credentials
+api_keys.json
+credentials.json
+service-account.json
+
+# ========================================
+# VIRTUAL ENVIRONMENTS
+# ========================================
+
+# Python virtual environments
 .venv
-env/
 venv/
+env/
 ENV/
 env.bak/
 venv.bak/
+.virtualenv
+
+# ========================================
+# LOGS & DEBUGGING
+# ========================================
+
+# Log files
+*.log
+logs/
+log/
+*.log.*
+
+# Debug files
+debug/
+*.debug
+
+# Error reports
+error_reports/
+crash_dumps/
+
+# ========================================
+# DATABASE & DATA
+# ========================================
+
+# SQLite databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Database dumps
+*.sql
+*.dump
+
+# Data files
+data/
+*.csv
+*.json
+!config/*.json
+!**/schemas/*.json
+!**/input_schema.json
+!**/agent_config.yaml
+!**/config.yaml
+!vertical_agents/**/config.yaml
+
+# ========================================
+# CACHE & TEMPORARY FILES
+# ========================================
+
+# General cache
+.cache/
+cache/
+tmp/
+temp/
+.tmp/
+.temp/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# ========================================
+# AI/ML SPECIFIC
+# ========================================
+
+# Model files
+*.model
+*.pkl
+*.pickle
+models/
+checkpoints/
+*.h5
+*.hdf5
+*.onnx
+*.pb
+
+# Vector databases and embeddings
+embeddings/
+vector_store/
+*.faiss
+*.index
+
+# Knowledge base data (temporary/processed)
+knowledge_base/processed/
+knowledge_base/temp/
+knowledge_base/*.pdf
+knowledge_base/*.docx
+knowledge_base/*.txt
+
+# Hugging Face cache
+.cache/huggingface/
+
+# ========================================
+# TESTING
+# ========================================
+
+# Test outputs
+test_outputs/
+test_results/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Performance and evaluation metrics
+performance_reports/
+evaluation_results/
+metrics/
+benchmark_results/
+evaluation_logs/
+
+# ========================================
+# DOCKER & DEPLOYMENT
+# ========================================
+
+# Docker
+.dockerignore
+
+# Kubernetes
+*.kubeconfig
+
+# Deployment
+.vercel
+.serverless/
+.netlify/
+
+# ========================================
+# IDE & EDITORS
+# ========================================
+
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# PyCharm
+.idea/
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+auto-save-list
+tramp
+.\#*
+
+# ========================================
+# PROJECT SPECIFIC
+# ========================================
 
 # Spyder project settings
 .spyderproject
@@ -160,16 +462,52 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+# Agent runtime and processing files
+agents/*/outputs/
+agents/*/processing/
+agents/*/sessions/
+vertical_agents/*/outputs/
+vertical_agents/*/processing/
+vertical_agents/*/sessions/
 
-# Ruff stuff:
-.ruff_cache/
+# LLM client specific caches and outputs
+.anthropic_cache/
+.openai_cache/
+.gemini_cache/
+.groq_cache/
+.huggingface_cache/
 
-# PyPI configuration file
-.pypirc
-.vercel
+# Generated agent files (if auto-generated)
+# Uncomment if you have auto-generated agents that shouldn't be tracked
+# generated_agents/
+
+# Backup files
+*.backup
+*.bak
+*.orig
+
+# Archive files
+*.zip
+*.tar.gz
+*.rar
+*.7z
+
+# Large files that shouldn't be in git
+*.mp4
+*.avi
+*.mov
+*.wmv
+*.flv
+*.webm
+
+# CLI tool outputs and generated files
+cli/generated/
+cli/outputs/
+scripts/outputs/
+scripts/generated/
+
+# Build artifacts
+build/
+dist/
+*.whl
+*.egg-info/

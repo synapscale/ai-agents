@@ -1,0 +1,46 @@
+tools:
+- name: knowledge_base_search
+  description: "Busca informações na base de conhecimento geral do NEUROHOOK-ULTRA"
+  type: vector_search
+  parameters:
+    table: knowledge_base
+    metadata_filters:
+      agent_id: PARADIGM-ARCHITECT
+    limit: 5
+
+- name: axiom-archaeologist
+  description: "Delega questões sobre Bloqueios Mentais nas Vendas para o especialista Axiom-Archaeologist"
+  type: sub_agent
+  parameters:
+    agent_id: Axiom-Archaeologist
+    threshold: 0.75    # Confiança mínima para delegar
+
+- name: concept-architext
+  description: "Delega questões sobre construção de Frameworks Persuasivos
+ para o especialista concept-architext"
+  type: sub_agent
+  parameters:
+    agent_id: concept-architext
+    threshold: 0.75
+
+- name: paradigmatic-linguist
+  description: "Delega questões sobre criação de linguagem persuasiva para o especialista paradigmatic-linguist"
+  type: sub_agent
+  parameters:
+    agent_id: paradigmatic-linguist
+    threshold: 0.75
+
+- name: legitimacy-engineer
+  description: "Delega questões sobre construção de credibilidade e prova
+ para o especialista legitimacy-engineer"
+  type: sub_agent
+  parameters:
+    agent_id: legitimacy-engineer
+    threshold: 0.75
+
+- name: transdisciplinary-synthesizer
+  description: "Delega questões sobre criação de Conexões Surpreendentes para o especialista transdisciplinary-synthesizer"
+  type: sub_agent
+  parameters:
+    agent_id: transdisciplinary-synthesizer
+    threshold: 0.75

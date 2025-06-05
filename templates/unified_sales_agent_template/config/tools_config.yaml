@@ -1,0 +1,184 @@
+# Configuração de Ferramentas Especializadas
+
+# Ferramentas de Análise
+analysis_tools:
+  - name: "paradigm_analysis"
+    type: "custom"
+    class: "ParadigmAnalysisTool"
+    description: "Analisa paradigmas atuais e cria estratégias de transformação"
+    parameters:
+      model: "gpt-4-turbo"
+      max_analysis_depth: 3
+      
+  - name: "objection_mapper"
+    type: "custom"
+    class: "ObjectionMappingTool"
+    description: "Mapeia objeções e cria estratégias de neutralização"
+    parameters:
+      categorization_model: "claude-3-sonnet"
+      
+  - name: "conversion_optimizer"
+    type: "custom"
+    class: "ConversionOptimizationTool"
+    description: "Otimiza elementos para maximizar conversões"
+    parameters:
+      optimization_model: "gpt-4-turbo"
+
+# Ferramentas de Conhecimento
+knowledge_tools:
+  - name: "paradigm_shift_knowledge"
+    type: "vector_search"
+    description: "Busca conhecimento especializado em mudança de paradigmas"
+    parameters:
+      collection: "paradigm_shift"
+      top_k: 5
+      similarity_threshold: 0.8
+      
+  - name: "persuasion_frameworks_knowledge"
+    type: "vector_search"
+    description: "Busca frameworks de persuasão comprovados"
+    parameters:
+      collection: "persuasion_frameworks"
+      top_k: 5
+      similarity_threshold: 0.8
+      
+  - name: "sales_psychology_knowledge"
+    type: "vector_search"
+    description: "Busca conhecimento em psicologia de vendas"
+    parameters:
+      collection: "sales_psychology"
+      top_k: 5
+      similarity_threshold: 0.8
+
+# Ferramentas de Geração
+generation_tools:
+  - name: "framework_generator"
+    type: "custom"
+    class: "FrameworkGeneratorTool"
+    description: "Gera frameworks conceituais personalizados"
+    parameters:
+      creativity_model: "claude-3-opus"
+      structure_model: "gpt-4-turbo"
+      
+  - name: "narrative_creator"
+    type: "custom"
+    class: "NarrativeCreatorTool"
+    description: "Cria narrativas persuasivas customizadas"
+    parameters:
+      storytelling_model: "claude-3-opus"
+      
+  - name: "metaphor_architect"
+    type: "custom"
+    class: "MetaphorArchitectTool"
+    description: "Cria metáforas e analogias poderosas"
+    parameters:
+      creative_model: "claude-3-opus"
+      domains: ["science", "nature", "technology", "sports", "war", "construction"]
+
+# Integrações de API
+api_integrations:
+  - name: "hubspot_integration"
+    type: "openapi"
+    description: "Integração com HubSpot CRM"
+    spec_url: "https://api.hubapi.com/api-catalog-public/v1/apis"
+    authentication:
+      type: "api_key"
+      header: "Authorization"
+      
+  - name: "stripe_integration"
+    type: "openapi"
+    description: "Integração com Stripe para pagamentos"
+    spec_url: "https://raw.githubusercontent.com/stripe/openapi/master/openapi/spec3.yaml"
+    authentication:
+      type: "bearer_token"
+      
+  - name: "salesforce_integration"
+    type: "custom"
+    class: "SalesforceIntegrationTool"
+    description: "Integração com Salesforce CRM"
+    parameters:
+      api_version: "v58.0"
+      
+# Ferramentas de Monitoramento
+monitoring_tools:
+  - name: "conversion_tracker"
+    type: "custom"
+    class: "ConversionTrackingTool"
+    description: "Rastreia métricas de conversão em tempo real"
+    parameters:
+      tracking_model: "gpt-4-turbo"
+      
+  - name: "performance_analyzer"
+    type: "custom"
+    class: "PerformanceAnalyzerTool"
+    description: "Analisa performance de frameworks e estratégias"
+    parameters:
+      analysis_model: "claude-3-sonnet"
+      
+  - name: "feedback_processor"
+    type: "custom"
+    class: "FeedbackProcessorTool"
+    description: "Processa feedback de clientes para otimização"
+    parameters:
+      sentiment_model: "gpt-4-turbo"
+
+# Configuração de Delegação para Subagentes
+subagent_tools:
+  - name: "axiom_archaeologist_delegation"
+    type: "sub_agent"
+    description: "Delega análise de bloqueios mentais"
+    parameters:
+      agent_id: "AXIOM-ARCHAEOLOGIST"
+      threshold: 0.75
+      specialization: "axiom_discovery"
+      
+  - name: "concept_architect_delegation"
+    type: "sub_agent"
+    description: "Delega construção de frameworks"
+    parameters:
+      agent_id: "CONCEPT-ARCHITECT"
+      threshold: 0.75
+      specialization: "concept_creation"
+      
+  - name: "paradigmatic_linguist_delegation"
+    type: "sub_agent"
+    description: "Delega criação de linguagem persuasiva"
+    parameters:
+      agent_id: "PARADIGMATIC-LINGUIST"
+      threshold: 0.75
+      specialization: "linguistic_persuasion"
+      
+  - name: "legitimacy_engineer_delegation"
+    type: "sub_agent"
+    description: "Delega construção de credibilidade"
+    parameters:
+      agent_id: "LEGITIMACY-ENGINEER"
+      threshold: 0.75
+      specialization: "credibility_building"
+      
+  - name: "transdisciplinary_synthesizer_delegation"
+    type: "sub_agent"
+    description: "Delega síntese transdisciplinar"
+    parameters:
+      agent_id: "TRANSDISCIPLINARY-SYNTHESIZER"
+      threshold: 0.75
+      specialization: "transdisciplinary_synthesis"
+
+# Configuração Global de Ferramentas
+global_config:
+  max_concurrent_tools: 5
+  timeout_seconds: 300
+  retry_attempts: 3
+  cache_results: true
+  cache_ttl_hours: 24
+  
+  error_handling:
+    fallback_to_base_model: true
+    log_errors: true
+    notify_on_failure: true
+    
+  optimization:
+    batch_requests: true
+    parallel_execution: true
+    result_caching: true
+

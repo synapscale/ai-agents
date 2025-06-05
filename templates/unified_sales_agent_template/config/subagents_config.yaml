@@ -1,0 +1,280 @@
+# Configuração de Subagentes Especializados
+
+# Configuração Global de Subagentes
+global_config:
+  delegation_strategy: "confidence_based"  # confidence_based, round_robin, load_balanced
+  confidence_threshold: 0.75
+  max_delegation_depth: 3
+  timeout_seconds: 300
+  retry_attempts: 2
+  
+  communication:
+    protocol: "direct"  # direct, message_queue, event_driven
+    format: "structured"  # structured, natural_language
+    include_context: true
+    
+  monitoring:
+    track_performance: true
+    track_utilization: true
+    track_success_rate: true
+    log_delegations: true
+
+# Subagentes Especializados
+subagents:
+  axiom_archaeologist:
+    name: "AXIOM-ARCHAEOLOGIST"
+    type: "LlmAgent"
+    model: "claude-3-sonnet"
+    fallback_model: "gpt-4-turbo"
+    
+    specialization:
+      domain: "axiom_discovery"
+      description: "Especialista em identificar bloqueios mentais e pressupostos limitantes"
+      keywords: ["bloqueios", "objeções", "resistência", "pressupostos", "crenças", "limitantes"]
+      confidence_indicators: ["análise psicológica", "padrões comportamentais", "resistência mental"]
+      
+    configuration:
+      max_tokens: 3000
+      temperature: 0.6  # Mais analítico
+      delegation_threshold: 0.75
+      
+    tools:
+      - "cognitive_biases_knowledge"
+      - "sales_psychology_knowledge"
+      - "objection_mapper"
+      
+    memory:
+      domains: ["cognitive_biases", "sales_psychology"]
+      context_window: 2000
+      
+    performance_metrics:
+      - "blocker_identification_accuracy"
+      - "insight_depth_score"
+      - "actionability_rating"
+      
+  concept_architect:
+    name: "CONCEPT-ARCHITECT"
+    type: "LoopAgent"
+    model: "gpt-4-turbo"
+    fallback_model: "claude-3-sonnet"
+    
+    specialization:
+      domain: "concept_creation"
+      description: "Especialista em construir frameworks conceituais persuasivos"
+      keywords: ["framework", "conceito", "estrutura", "modelo", "arquitetura", "sistema"]
+      confidence_indicators: ["framework conceitual", "estrutura persuasiva", "modelo mental"]
+      
+    configuration:
+      max_tokens: 4000
+      temperature: 0.7  # Balanceado para criatividade estruturada
+      max_iterations: 3
+      completion_criteria: "framework_completeness"
+      delegation_threshold: 0.75
+      
+    tools:
+      - "paradigm_shift_knowledge"
+      - "persuasion_frameworks_knowledge"
+      - "framework_generator"
+      
+    memory:
+      domains: ["paradigm_shift", "persuasion_frameworks"]
+      context_window: 3000
+      
+    performance_metrics:
+      - "framework_coherence_score"
+      - "persuasion_potential_rating"
+      - "implementation_feasibility"
+      
+  paradigmatic_linguist:
+    name: "PARADIGMATIC-LINGUIST"
+    type: "LlmAgent"
+    model: "claude-3-opus"
+    fallback_model: "gpt-4-turbo"
+    
+    specialization:
+      domain: "linguistic_persuasion"
+      description: "Especialista em criar linguagem e narrativas persuasivas"
+      keywords: ["linguagem", "comunicação", "frases", "narrativa", "storytelling", "palavras"]
+      confidence_indicators: ["linguagem persuasiva", "narrativa impactante", "comunicação estratégica"]
+      
+    configuration:
+      max_tokens: 3500
+      temperature: 0.8  # Mais criativo para linguagem
+      delegation_threshold: 0.75
+      
+    tools:
+      - "neurohook_techniques_knowledge"
+      - "persuasion_frameworks_knowledge"
+      - "narrative_creator"
+      - "metaphor_architect"
+      
+    memory:
+      domains: ["neurohook_techniques", "persuasion_frameworks"]
+      context_window: 2500
+      
+    performance_metrics:
+      - "linguistic_impact_score"
+      - "memorability_rating"
+      - "emotional_resonance"
+      
+  legitimacy_engineer:
+    name: "LEGITIMACY-ENGINEER"
+    type: "LlmAgent"
+    model: "gpt-4-turbo"
+    fallback_model: "claude-3-sonnet"
+    
+    specialization:
+      domain: "credibility_building"
+      description: "Especialista em construir credibilidade e sistemas de prova"
+      keywords: ["prova", "credibilidade", "validação", "autoridade", "evidência", "legitimidade"]
+      confidence_indicators: ["sistema de prova", "credibilidade", "validação científica"]
+      
+    configuration:
+      max_tokens: 3000
+      temperature: 0.5  # Mais preciso para construção de provas
+      delegation_threshold: 0.75
+      
+    tools:
+      - "behavioral_economics_knowledge"
+      - "sales_psychology_knowledge"
+      - "conversion_optimizer"
+      
+    memory:
+      domains: ["behavioral_economics", "sales_psychology"]
+      context_window: 2500
+      
+    performance_metrics:
+      - "credibility_strength_score"
+      - "proof_completeness_rating"
+      - "skepticism_neutralization"
+      
+  transdisciplinary_synthesizer:
+    name: "TRANSDISCIPLINARY-SYNTHESIZER"
+    type: "LlmAgent"
+    model: "claude-3-opus"
+    fallback_model: "gpt-4-turbo"
+    
+    specialization:
+      domain: "transdisciplinary_synthesis"
+      description: "Especialista em criar analogias e conexões entre domínios"
+      keywords: ["analogias", "metáforas", "conexões", "síntese", "transdisciplinar", "domínios"]
+      confidence_indicators: ["analogia poderosa", "síntese transdisciplinar", "conexões inesperadas"]
+      
+    configuration:
+      max_tokens: 3500
+      temperature: 0.9  # Máxima criatividade para síntese
+      delegation_threshold: 0.75
+      
+    tools:
+      - "paradigm_shift_knowledge"
+      - "neurohook_techniques_knowledge"
+      - "metaphor_architect"
+      
+    memory:
+      domains: ["paradigm_shift", "neurohook_techniques"]
+      context_window: 2500
+      
+    performance_metrics:
+      - "analogy_strength_score"
+      - "cross_domain_relevance"
+      - "insight_novelty_rating"
+
+# Configuração de Orquestração
+orchestration:
+  sequence:
+    default:
+      - "axiom_archaeologist"      # 1. Identificar bloqueios
+      - "concept_architect"        # 2. Criar framework
+      - "paradigmatic_linguist"    # 3. Desenvolver linguagem
+      - "legitimacy_engineer"      # 4. Construir credibilidade
+      - "transdisciplinary_synthesizer"  # 5. Amplificar com analogias
+      
+    parallel_groups:
+      analysis_phase:
+        - "axiom_archaeologist"
+        - "legitimacy_engineer"
+        
+      creation_phase:
+        - "concept_architect"
+        - "paradigmatic_linguist"
+        
+      synthesis_phase:
+        - "transdisciplinary_synthesizer"
+        
+  routing:
+    strategy: "intelligent"  # intelligent, sequential, parallel
+    
+    rules:
+      - condition: "query_contains(['bloqueio', 'objeção', 'resistência'])"
+        action: "delegate_to_axiom_archaeologist"
+        priority: 1
+        
+      - condition: "query_contains(['framework', 'conceito', 'estrutura'])"
+        action: "delegate_to_concept_architect"
+        priority: 1
+        
+      - condition: "query_contains(['linguagem', 'comunicação', 'narrativa'])"
+        action: "delegate_to_paradigmatic_linguist"
+        priority: 1
+        
+      - condition: "query_contains(['prova', 'credibilidade', 'validação'])"
+        action: "delegate_to_legitimacy_engineer"
+        priority: 1
+        
+      - condition: "query_contains(['analogia', 'metáfora', 'conexão'])"
+        action: "delegate_to_transdisciplinary_synthesizer"
+        priority: 1
+        
+      - condition: "complex_query"
+        action: "sequential_delegation"
+        priority: 2
+        
+  integration:
+    strategy: "hierarchical"  # hierarchical, collaborative, competitive
+    
+    synthesis_prompt: |
+      Integre os seguintes resultados dos especialistas em uma resposta coesa:
+      
+      {subagent_results}
+      
+      Consulta original: {original_query}
+      
+      Crie uma síntese que:
+      1. Preserve os insights únicos de cada especialista
+      2. Elimine redundâncias e contradições
+      3. Organize em sequência lógica e persuasiva
+      4. Forneça plano de implementação prático
+      
+    quality_control:
+      check_completeness: true
+      check_consistency: true
+      check_actionability: true
+      minimum_quality_score: 0.8
+
+# Configuração de Aprendizado e Otimização
+learning:
+  enabled: true
+  
+  feedback_sources:
+    - "delegation_success_rate"
+    - "subagent_performance_metrics"
+    - "user_satisfaction_scores"
+    - "conversion_impact_data"
+    
+  optimization_targets:
+    - "delegation_accuracy"
+    - "response_quality"
+    - "processing_efficiency"
+    - "user_satisfaction"
+    
+  adaptation:
+    threshold_adjustment: true
+    routing_optimization: true
+    model_selection: true
+    prompt_refinement: true
+    
+  continuous_improvement:
+    review_frequency: "weekly"
+    auto_optimization: true
+    human_oversight: true
+

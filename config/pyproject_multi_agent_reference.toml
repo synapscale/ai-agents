@@ -1,0 +1,14 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "magenerator"
+version = "0.1.0"
+# Adicione outras metadados se desejar, como autores, descrição, etc.
+
+[tool.setuptools.packages.find]
+where = ["."]  # Onde procurar por pacotes (raiz do projeto)
+include = ["magenerator*"]  # Padrão para incluir apenas o pacote 'magenerator' e seus submódulos
+exclude = [] # Nenhum pacote a excluir explicitamente
+
